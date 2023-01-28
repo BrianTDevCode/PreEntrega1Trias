@@ -1,0 +1,33 @@
+  .cart__logo{
+    display: flex;
+    width: 35px;
+    height: 35px;
+    color: #fff; 
+    align-self: baseline;
+    transition: all 0.7s ease-in-out;
+  }
+  
+  .cart__logo:hover{
+    cursor: pointer;
+    color: rgb(232, 17, 17);
+    transition: 0.7s;
+  
+    
+  } 
+
+
+.productCount__container{
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #fff;
+position: relative;
+bottom:50px;
+left: 28px;
+border-radius: 50px;
+
+}
+
+.productCount__number{
+    font-weight: bold;
+}
