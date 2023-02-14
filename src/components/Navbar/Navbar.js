@@ -1,22 +1,56 @@
-import React from 'react'
-import './Navbar.css';
-import CartWidget from '../CartWidget/CartWidget'
-const NavBar = () => {
-  return (
-    <header className='header'>
-        <nav className='header__nav'>
-        <h1 className='header__logo'>
-            <a className='header__link' href="#">Computer Shop</a>
-        </h1>
-            <ul className='header__ul'>
-                <a className='header__link--menu' href="#"><li className='header__li'>Inicio</li></a>
-                <a className='header__link--menu' href="#"><li className='header__li'>Tienda</li></a>
-            </ul>
-            <CartWidget/>
-        </nav>
-  
-    </header>
-  )
-}
+import React, { useEffect, useState } from "react";
+import "./Navbar.css";
+import CartWidget from "../CartWidget/CartWidget";
+import { mockedProducts } from "../../utils/products";
+import { request } from "../../utils/request";
 
-export default NavBar
+import { Link } from "react-router-dom";
+
+const NavBar = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    request(mockedProducts).then((result) => {
+      const categoriesProduct = [];
+
+       result.filter((element) => {
+        const isDuplicate = categoriesProduct.includes(element.category);
+
+        if (!isDuplicate) {
+          categoriesProduct.push(element.category);
+
+          return true;
+        }
+        return false;
+      });
+
+      setCategories(categoriesProduct);
+    });
+
+   
+
+  }, []);
+
+ 
+  return (
+    <header className="header">
+      <nav className="header__nav">
+        <h1 className="header__logo">
+          <Link className="header__link" to={`/`}>
+            Computer Shop
+          </Link>
+        </h1>
+        <ul className="header__ul">
+          {categories.map((cat, index) => {
+            console.log(cat)
+            return <Link key={index} className="header__link" to={`/category/${cat}`}>{cat}</Link>;
+         
+          })}
+        </ul>
+        <CartWidget />
+      </nav>
+    </header>
+  );
+};
+
+export default NavBar;

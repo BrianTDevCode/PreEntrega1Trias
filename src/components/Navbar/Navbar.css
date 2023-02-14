@@ -32,14 +32,16 @@
     display: flex;
     
 } 
-.header__li{
+.header__link{
     padding: 10px 25px;
     color: #fff;
     list-style: none;
+    text-decoration: none;
+    font-weight: bold;
     
 }
 
-.header__li:hover{
+.header__link:hover{
     cursor: pointer;
     color: rgb(0, 0, 0);
     background-color: #fff;
@@ -48,8 +50,5 @@
  
   }
 
-.header__link--menu{
-  text-decoration: none;
-  font-weight: bold;  
-}
+
 
