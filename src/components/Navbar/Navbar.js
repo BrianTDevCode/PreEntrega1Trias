@@ -42,8 +42,8 @@ const NavBar = () => {
         </h1>
         <ul className="header__ul">
           {categories.map((cat, index) => {
-            console.log(cat)
-            return <Link key={index} className="header__link" to={`/category/${cat}`}>{cat}</Link>;
+           
+            return <Link key={index} className="header__link--catgories" to={`/category/${cat}`}>{cat}</Link>;
          
           })}
         </ul>

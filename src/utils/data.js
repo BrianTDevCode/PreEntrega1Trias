@@ -1,0 +1,1 @@
+-Plataforma: Boxed Processor-Familia de productos: AMD A Series Processors-Línea de productos: AMD A10 Series APU for Desktops-N.° de núcleos de CPU: 4-Reloj de aumento máx: Hasta 3.8GHz-Reloj base: 3.5GHz-Caché L2 total: 2MB-TDP/TDP predeterminado: 65W-Paquete: AM4

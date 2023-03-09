@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.container__title{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    font-family: 'Lobster', cursive;
+  } 
+
+
+  .container{
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.checkout__container{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    /* border: 1px solid black; */
+    align-items: center;
+    text-align: center;
+    flex-basis: auto;
+    
+}
+
+.checkout__form{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+   
+}
+
+input{
+    margin: 10px;
+    width: 400px;
+    height: 40px;
+}
+
+.checkout__btn{
+    padding: 15px 0px;
+    margin: 100px;
+}
+
+.form__error{
+    margin: 10px 0px;
+    color: #ba3939;
+    background: #ffe0e0;
+    border: 1px solid #a33a3a;
+}
+
+
+.emptyCart__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+   
+  
+}
+
+.emptyCart__button{
+    margin-top: 25px;
+}
+
+
+.message__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 50%;
+}
+
+.message__title{
+    margin-bottom: 30px;
+}

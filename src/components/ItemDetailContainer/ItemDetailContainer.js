@@ -1,8 +1,11 @@
+import { documentId } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import ProductDetail from '../../components/ProducDetial/ProductDetail';
-import { mockedProducts } from '../../utils/products';
-import { request } from '../../utils/request';
+
+import ItemDetail from '../ItemDetail/ItemDetail';
+
+import { db } from "../../firebase/firebaseConfig";
+import {collection,query,where,getDocs} from "firebase/firestore";
 
 
 
@@ -14,31 +17,31 @@ const ItemDetailContainer = () => {
   useEffect(() => {
  
    
-    request(mockedProducts.find(prod => prod.id == id)).then((result) => setProduct(result));
-      
-    
-  }, []);
+    const getProductsById = async () => {
+      const q = query(collection(db, "products"), where(documentId(), "==", id));
+      const querySnapshot = await getDocs(q);
 
- /*
- useEffect(()=>{
-    let result;
-    const request = ()=>{
-      return new Promise((resolve,reject)=>{
-        setTimeout(() => {
-         
-          result = mockedProducts.find(prod => prod.id == id);
-          console.log(result)
-          resolve(result)
-        }, 1000);
-      })
-    }
+      let prod = {};
+      querySnapshot.forEach((doc) => {
+        prod = { ...doc.data(), id: doc.id };
+      });
+      setProduct(prod);
+
+     
+    };
+
+    getProductsById();
+      
+    ;
+    
+  }, [id]);
+
+
   
-    request().then(() => setProduct(result));
-  },[])
- */
+
   return (
     <div>
-     <ProductDetail data={product}/>
+     <ItemDetail data={product}/>
     </div>
   )
 }

@@ -5,24 +5,38 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-const ProductCard = ({data})=> {
+const ItemList = ({data})=> {
+
+  console.log(data)
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    
+    //<Card sx={{ width: 200, height:250}}>
+    <Card>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image= {data.producto}
+          image= {data.img}
           alt="product"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-           {`${data.marca} ${data.modelo}`}
+           {`${data.brand} ${data.model}`}
+          </Typography>
+
+          <Typography gutterBottom variant="p" component="div">
+           {`U$: ${data.price}`}
+          </Typography>
+
+          <Typography gutterBottom variant="p" component="div">
+           {`Stock: ${data.stock}`}
           </Typography>
           
         </CardContent>
       </CardActionArea>
     </Card>
+   
   );
 }
-export default ProductCard
+export default ItemList

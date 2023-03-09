@@ -29,5 +29,8 @@ border-radius: 50px;
 }
 
 .productCount__number{
-    font-weight: bold;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+
 }

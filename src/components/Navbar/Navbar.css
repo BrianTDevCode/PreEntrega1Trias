@@ -20,11 +20,7 @@
   transition: 0.7s;
 }
 
-.header__link{
-    font-family: 'Lobster', cursive;
-    color: #fff;
-    text-decoration: none;
-}
+
 
 
 
@@ -32,16 +28,18 @@
     display: flex;
     
 } 
-.header__link{
+.header__link, .header__link--catgories{
     padding: 10px 25px;
     color: #fff;
     list-style: none;
     text-decoration: none;
     font-weight: bold;
+    font-family: 'Lobster', cursive;
+
     
 }
 
-.header__link:hover{
+.header__link--catgories:hover{
     cursor: pointer;
     color: rgb(0, 0, 0);
     background-color: #fff;
