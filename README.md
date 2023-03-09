@@ -1,4 +1,6 @@
-# Proyecto E-Commerce: CoderHouse
+# Proyecto E-Commerce: CoderHouse 2023 (#39540)
+
+### Alumno: Brian Trias
 
 Proyecto creado con [Create React App](https://github.com/facebook/create-react-app).
 
