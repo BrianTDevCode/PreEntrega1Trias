@@ -8,18 +8,18 @@ import { Button } from "@mui/material";
 import Swal from "sweetalert2";
 
 import { db } from "../../firebase/firebaseConfig";
-import { collection,writeBatch, addDoc,doc } from "firebase/firestore";
+import { collection,writeBatch, addDoc,doc, increment } from "firebase/firestore";
 import MessageSuccess from "../MessageSuccess/MessageSuccess";
+
 
 
 const Checkout = () => {
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let data = [];
-  const { setItems,items, totalPrice } = useContext(CartContext);
+  const { setItems,items} = useContext(CartContext);
   const [purchaseID, setPurchaseID] = useState("");
 
-  console.log(`totla: ${totalPrice}`)
   const validate = (values) => {
     const errors = {};
     if (values.name.length < 5) {
@@ -45,6 +45,7 @@ const Checkout = () => {
 
   const OnSubmit = (values) => {
     data.cart = [];
+    delete values.email2;
     data.user = values;
 
     const today = new Date();
@@ -61,7 +62,7 @@ const Checkout = () => {
         quantity: item.quantity,
       };
 
-      data.cart.push(obj);
+     return data.cart.push(obj);
     });
 
     
@@ -74,6 +75,7 @@ const Checkout = () => {
       showDenyButton: true,
       denyButtonText: "no",
     }).then((resp) => {
+      
       if (resp.isConfirmed) {
         const add = async () => {
           const docRef = await addDoc(collection(db, "purchases"), {
@@ -103,6 +105,7 @@ const Checkout = () => {
         updateStock();
         
       }
+      
     });
   };
 
