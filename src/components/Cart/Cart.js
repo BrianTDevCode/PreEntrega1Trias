@@ -6,7 +6,7 @@ import { Grid, Button, Paper, Box } from "@mui/material";
 
 
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 const Item = styled(Paper)(({ theme }) => ({

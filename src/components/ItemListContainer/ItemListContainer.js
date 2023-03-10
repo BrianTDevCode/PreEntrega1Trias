@@ -8,13 +8,11 @@ import Grid from "@mui/material/Grid";
 import Spinner from "../Spinner/spinner";
 
 import "./ItemListContainer.css";
-import { mockedProducts } from "../../utils/products";
-import { request } from "../../utils/request";
 import { Link, useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 
 import { db } from "../../firebase/firebaseConfig";
-import {collection,addDoc,query,where,getDocs, doc} from "firebase/firestore";
+import {collection,query,where,getDocs} from "firebase/firestore";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -65,7 +63,7 @@ const ItemListContainer = () => {
           docs.push({ ...doc.data(), id: doc.id });
         });
 
-        console.log(docs.length)
+        
         setProducts(docs);
        
       };
@@ -78,7 +76,7 @@ const ItemListContainer = () => {
 
     <>
     <div className="container__title">
-      {id == undefined? (
+      {id === undefined? (
       <h1 className="title">Productos Populares</h1>
       ):(
       <h1 className="title">{id}</h1>
@@ -86,7 +84,7 @@ const ItemListContainer = () => {
     } 
     </div>
 
-    {products.length == 0 ? (
+    {products.length === 0 ? (
         <div className="Spinner">
           <Spinner />
         </div>

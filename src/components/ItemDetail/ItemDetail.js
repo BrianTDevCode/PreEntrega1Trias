@@ -4,7 +4,7 @@ import "./ItemDetail.css";
 
 
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useContext, useState } from "react";
@@ -14,11 +14,11 @@ import Spinner from "../Spinner/spinner";
 
 const ItemDetail = ({ data }) => {
  
-  console.log(data);
+  
   const {addItem } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
-  if (data.quantity == undefined) {
+  if (data.quantity === undefined) {
     data.quantity = quantity;
   }
 
@@ -58,7 +58,7 @@ const ItemDetail = ({ data }) => {
       <h1 className="title">Detalle del Producto</h1>
     </div>
 
-    { data.hasOwnProperty('img') == false || data.img.complete == false  ? (
+    { data.hasOwnProperty('img') === false || data.img.complete === false  ? (
         <div className="Spinner">
           <Spinner />
         </div>
@@ -76,7 +76,7 @@ const ItemDetail = ({ data }) => {
       <div className="detail__container--data">
         <p className="detail__data"><strong>Marca: </strong>{`${data.brand}`}</p>
         <p className="detail__data"><strong>Modelo: </strong>{`${data.model}`}</p>
-        {data.description!= undefined? (
+        {data.description !== undefined? (
         <p className="detail__data"><strong>Descripción: </strong>{`${data.description.replaceAll('-' , '\n')}`}</p>
         
         

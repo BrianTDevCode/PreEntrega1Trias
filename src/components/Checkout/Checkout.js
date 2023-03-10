@@ -8,18 +8,9 @@ import { Button } from "@mui/material";
 import Swal from "sweetalert2";
 
 import { db } from "../../firebase/firebaseConfig";
-import {
-  collection,
-  addDoc,
-  doc,
-  writeBatch,
-  FieldValue,
-  Firestore,
-  increment,
-  updateDoc,
-} from "firebase/firestore";
+import { collection,writeBatch, addDoc,doc } from "firebase/firestore";
 import MessageSuccess from "../MessageSuccess/MessageSuccess";
-import { async } from "@firebase/util";
+
 
 const Checkout = () => {
   const emailRegex =
@@ -95,7 +86,7 @@ const Checkout = () => {
           data.cart.map((prod) => {
             
             const sfRef = doc(db, "products", prod.id.toString());
-            batch.update(sfRef, {"stock": increment(-prod.quantity)});
+            batch.update(sfRef, "stock", increment(-prod.quantity));
         
         });
 

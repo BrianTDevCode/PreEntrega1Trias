@@ -1,6 +1,6 @@
-import React, {createContext, useEffect} from "react";
+import React, {createContext} from "react";
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -31,9 +31,9 @@ export const  CartProvider = ({children}) => {
         
 
        //buscar repetidos
-        const element = items.find(i=>i.id == item.id);
+        const element = items.find(i=>i.id === item.id);
        
-        if (element == undefined) {
+        if (element === undefined) {
              data = [...items,item];
              setItems(data);
           

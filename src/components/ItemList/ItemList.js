@@ -7,11 +7,10 @@ import { CardActionArea } from '@mui/material';
 
 const ItemList = ({data})=> {
 
-  console.log(data)
+  
 
   return (
     
-    //<Card sx={{ width: 200, height:250}}>
     <Card>
       <CardActionArea>
         <CardMedia
