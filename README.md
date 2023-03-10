@@ -15,5 +15,5 @@ También deberá solicitar las credenciales requeridas al desarrollador para pod
 ## Librerias externas utilizadas
 
 👉🏻 Material UI (para componentes utilizados en la UI)\
-👉🏻 SweetAlert 2 y Toastify (para crear alertas personalizadas)
+👉🏻 SweetAlert 2 y Toastify (para crear alertas personalizadas)\
 👉🏻 Formik (para creación y validación de formularios)
