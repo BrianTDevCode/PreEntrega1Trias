@@ -35,6 +35,11 @@ const Checkout = () => {
     if (values.email.match(emailRegex) == null) {
       errors.tel = "Ingrese un email válido";
     }
+
+    if (values.email !== values.email2) {
+      errors.tel = "Los emails nos coinciden";
+    }
+
     return errors;
   };
 
@@ -75,7 +80,7 @@ const Checkout = () => {
             user: data.user,
             cart: data.cart,
           });
-          //console.log("Document written with ID: ", docRef.id);
+          console.log("Document written with ID: ", docRef.id);
           setPurchaseID(docRef.id);
         };
         add();
@@ -119,6 +124,7 @@ const Checkout = () => {
               lastName: "",
               tel: "",
               email: "",
+              email2: ""
             }}
             validate={validate}
             onSubmit={OnSubmit}
@@ -130,6 +136,7 @@ const Checkout = () => {
 
               <Field placeholder="Teléfono" type="text" name="tel" />
               <Field placeholder="Email" type="email" name="email" />
+              <Field placeholder="Email" type="email" name="email2" />
 
               <Button
                 type="submit"
@@ -141,12 +148,10 @@ const Checkout = () => {
               </Button>
 
               <ErrorMessage className="form__error" component="p" name="name" />
-              <ErrorMessage
-                className="form__error"
-                component="p"
-                name="lastName"
-              />
+              <ErrorMessage className="form__error" component="p" name="lastName" />
               <ErrorMessage className="form__error" component="p" name="tel" />
+              <ErrorMessage className="form__error" component="p" name="email" />
+              <ErrorMessage className="form__error" component="p" name="email2" />
             </Form>
           </Formik>
           
