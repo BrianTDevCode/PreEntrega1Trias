@@ -70,10 +70,10 @@ const Checkout = () => {
       title: "Confirmar compra",
       text: "Desea confirmar la compra?",
       icon: "question",
-      confirmButtonText: "si",
+      confirmButtonText: "Si",
       confirmButtonColor: "#2b52e0",
       showDenyButton: true,
-      denyButtonText: "no",
+      denyButtonText: "No",
     }).then((resp) => {
       
       if (resp.isConfirmed) {
